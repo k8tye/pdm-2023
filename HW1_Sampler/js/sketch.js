@@ -1,7 +1,7 @@
 
 let sounds = new Tone.Players({
 
-  "thunder": "sounds/thunder2.wav",
+  "thunder": "sounds/thunder.ogg",
   "bee": "sounds/beebuzzing.wav",
   "cicadas": "sounds/cicadas.wav",
   "water": "sounds/water.mp3"
