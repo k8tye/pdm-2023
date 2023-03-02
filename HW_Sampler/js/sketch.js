@@ -1,23 +1,21 @@
 
-// let sound1 = new Tone.Player("sounds/chicken.wav");
-
 let sounds = new Tone.Players({
 
-  "nuggets": "sounds/chicken.wav",
-  "drop": "sounds/water.mp3",
-  "duct": "sounds/ductTape.wav"
+  "thunder": "sounds/thunder2.wav",
+  "bee": "sounds/beebuzzing.wav",
+  "cicadas": "sounds/cicadas.wav",
+  "water": "sounds/water.mp3"
 
 })
 
 const delay = new Tone.FeedbackDelay("8n", 0.5);
 
-let soundNames = ["nuggets", "drop", "duct"];
+let soundNames = ["thunder", "bee", "cicadas", "water"];
 let buttons = [];
 
 let dSlider;
 let fSlider;
 
-// let button1, button2, button3;
 
 function setup() {
   createCanvas(400, 400);
@@ -26,7 +24,7 @@ function setup() {
 
   soundNames.forEach((word, index) => {
     buttons[index] = createButton(word);
-    buttons[index].position(index, index*50);
+    buttons[index].position(index, index*70);
     buttons[index].mousePressed( () => buttonSound(word))
   })
 
@@ -44,8 +42,8 @@ function setup() {
 }
 
 function draw() {
-  background(220, 120, 180);
-  text('press the buttons for sound', 0, 150)
+  background(0, 120, 180);
+  text('Press the buttons for sound.', 10, 300)
 
 }
 
