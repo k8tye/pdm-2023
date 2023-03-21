@@ -1,7 +1,8 @@
 let buffers = new Tone.ToneAudioBuffers({
   "clickBuffer": "sounds/water-click.wav",
   "jazzBuffer": "sounds/jazz.mp3",
-  "pencilBuffer": "sounds/pencil_strokes.mp3"
+  "pencilBuffer": "sounds/pencil_strokes.mp3",
+  "trumpetBuffer": "sounds/trumpet.mp3",
 }, () => {
   console.log("buffers loaded");
 });
@@ -9,7 +10,8 @@ let buffers = new Tone.ToneAudioBuffers({
 let sounds = new Tone.Players({
   "click": "sounds/water-click.wav",
   "jazz": "sounds/jazz.mp3",
-  "pencil": "sounds/pencil_strokes.mp3"
+  "pencil": "sounds/pencil_strokes.mp3",
+  "trumpet": "sounds/trumpet.mp3"
 }).toDestination();
 
 let button;
@@ -36,7 +38,7 @@ function setup() {
   background(255);
   createCanvas(displayWidth, displayHeight);
   currentColor = 0;
-  text("Press Spacebar to Hear Jazz!", 10, 450);
+  text("Press Spacebar to Hear Music!", 10, 450);
   square1 = new PaintBox(1, 1, 40, "red"); //mouseX == 1 & 41; mouseY = 1 & 41 "red"
   square2 = new PaintBox(1, 42, 40, "orange"); // mouseY == 42 & 82 "orange"
   square3 = new PaintBox(1, 83, 40, "yellow"); // mouseY == 83 & 123 "yellow"
@@ -87,16 +89,16 @@ function keyPressed() {
 
 function doneMusic() {
   seq.stop();
-  sounds.player("jazz").start();
+  sounds.player("trumpet").start();
 }
 
 function mousePressed() {
   if (mouseX >= 0 && mouseX <= 40) {
-    if (mouseY >= 0 && mouseY < 410) {
+    if (mouseY >= 0 && mouseY < 415) {
     sounds.player("click").start();
     }
   } else if(mouseX > 40 && mouseX <= displayWidth) {
-      if (mouseY >= 0 && mouseY < 410) {
+      if (mouseY >= 0 && mouseY < 415) {
         sounds.player("pencil").start(); 
       }
   }
